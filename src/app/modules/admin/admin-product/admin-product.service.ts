@@ -9,9 +9,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AdminProductService {
 
+
   constructor(private htttp: HttpClient) { }
 
   getProducts(page: number, size: number): Observable<Page<AdminProduct>> {
     return this.htttp.get<Page<AdminProduct>>(`/api/admin/products?page=${page}&size=${size}`);
   }
+
+  delete(id: number): Observable<void> {
+    return this.htttp.delete<void>(`/api/admin/products/` + id)
+  }
+
 }
