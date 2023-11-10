@@ -90,7 +90,7 @@ export class AdminProductUpdateComponent implements OnInit {
   }
 
   private mapFormValues(product: AdminProductUpdate): void {
-    return this.productForm.setValue({
+    this.productForm.setValue({
       name: product.name,
       description: product.description,
       category: product.category,
@@ -98,6 +98,7 @@ export class AdminProductUpdateComponent implements OnInit {
       currency: product.currency,
       image: this.image
     });
+    this.image = product.image;
   }
 
 }

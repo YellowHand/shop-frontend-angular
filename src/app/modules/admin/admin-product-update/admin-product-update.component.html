@@ -3,8 +3,7 @@
     <app-admin-product-form [parentForm]="productForm"></app-admin-product-form>
 </form>
 
-<img *ngIf="image" src="{{'/data/productImage/' + image}}" width="200">
-<span>hello</span>
+<img *ngIf="image" src="{{'/api/data/productImage/' + image}}" width="200">
 
 <form [formGroup]="imageForm" (submit)="uploadFile()">
     <input type="file" [accept]="requiredFileTypes" (change)="onFileChange($event)">
