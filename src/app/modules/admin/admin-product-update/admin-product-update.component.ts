@@ -35,8 +35,7 @@ export class AdminProductUpdateComponent implements OnInit {
       description: ['', [Validators.required, Validators.minLength(4)]],
       category: ['', [Validators.required, Validators.minLength(4)]],
       price: ['', [Validators.required, Validators.min(0)]],
-      currency: ['PLN', Validators.required],
-      image: ['']
+      currency: ['PLN', Validators.required]
     });
 
     this.imageForm = this.formBuilder.group({
@@ -53,9 +52,6 @@ export class AdminProductUpdateComponent implements OnInit {
   submit() {
     console.log("Click");
     let id = Number(this.router.snapshot.params['id']);
-
-
-
     this.adminProductUpdateService.saveProduct(id, {
       name: this.productForm.get('name')?.value,
       description: this.productForm.get('description')?.value,
@@ -96,7 +92,6 @@ export class AdminProductUpdateComponent implements OnInit {
       category: product.category,
       price: product.price,
       currency: product.currency,
-      image: this.image
     });
     this.image = product.image;
   }
